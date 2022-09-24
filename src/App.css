@@ -1,0 +1,174 @@
+body {
+  color: #f9f4ef;
+}
+.bars {
+  display: none;
+  cursor: pointer;
+  z-index: 3;
+  height: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.bars svg {
+  height: 2rem;
+  color: black;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eaddcf;
+}
+.main {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  height: 80vh;
+  overflow-y: scroll;
+  box-shadow: 1px 2px 20px grey;
+  background-color: white;
+}
+.expense-form,
+.hide-form {
+  background-color: #f25042;
+  position: fixed;
+  width: 20rem;
+  min-height: 80vh;
+  padding: 3rem 1rem;
+}
+.modal-content {
+  background-color: #f25042;
+}
+#category,
+#title,
+#date,
+#amount {
+  display: block;
+  margin-bottom: 0.5rem;
+  width: 95%;
+  border: 0;
+}
+.hide-form button,
+.expense-form button {
+  border: 0;
+  background-color: #fffffe;
+  color: black;
+  width: 8rem;
+  height: 2rem;
+}
+.Expense-container {
+  z-index: 0;
+  height: 100%;
+  margin-left: 25rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.expense-item {
+  position: relative;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  background-color: #8c7851;
+  border-radius: 10px;
+  width: 20rem;
+  height: 18rem;
+  overflow: hidden;
+}
+.amount {
+  position: relative;
+}
+.amount p {
+  pointer-events: none;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+}
+#amount {
+  padding-left: 12px;
+}
+.dates {
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.date-modified {
+  margin-left: 1rem;
+}
+.edit-btn svg,
+.delete-btn svg {
+  height: 2rem;
+  padding: 4px;
+  color: white;
+}
+.delete-btn {
+  position: absolute;
+  border: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  right: -8px;
+  top: 0;
+}
+.edit-btn {
+  position: absolute;
+  border: 0;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: black;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+@media (max-width: 960px) {
+  .app {
+    display: block;
+    background-color: white;
+  }
+  .main {
+    /* margin: 1rem; */
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: white;
+  }
+  .bars {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+  }
+  .expense-form {
+    z-index: 1;
+    background-color: #f25042;
+    position: absolute;
+    width: 20rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 4rem 1rem;
+    transition: 1s all ease;
+  }
+  .hide-form {
+    z-index: 1;
+    left: -25rem;
+    transition: 1s all ease;
+    height: 100%;
+  }
+  .Expense-container {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+@media (max-width: 560px) {
+  .expense-form {
+    width: 100%;
+  }
+}

@@ -1,0 +1,35 @@
+.navLogo {
+  height: 3rem;
+}
+.flags img {
+  height: 1rem;
+}
+
+.nv {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.slider {
+  height: 75vh;
+}
+.aboutUs a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.637);
+  font-weight: bold;
+}
+.footer {
+  background-color: #001d5f;
+}
+.footer p {
+  color: white;
+}
+.footer h6 {
+  color: #748b59;
+}
+
+.footer h5 {
+  color: rgb(134, 91, 0);
+}
