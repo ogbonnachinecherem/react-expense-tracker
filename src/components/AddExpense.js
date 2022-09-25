@@ -17,6 +17,7 @@ function AddExpense() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
+  const [msg, setMsg] = useState("");
 
   useEffect(() => {
     setInterval(() => {
@@ -26,11 +27,25 @@ function AddExpense() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(
-      AddNewExpense({ id: uuidv4(), title, date, time, amount, category })
-    );
-    setTitle("");
-    setAmount("");
+    if (!title || !amount || !category) {
+      setMsg("All fields are Required!");
+      setTimeout(() => {
+        setMsg("");
+      }, 2000);
+    } else {
+      dispatch(
+        AddNewExpense({ id: uuidv4(), title, date, time, amount, category })
+      );
+      setMsg("Expense Added Successfully!");
+      setAmount(0);
+      setTitle("");
+      setCategory("");
+      setTimeout(() => {
+        setMsg("");
+      }, 2000);
+      setTitle("");
+      setAmount("");
+    }
   };
   return (
     <>
@@ -38,15 +53,14 @@ function AddExpense() {
         {bars}
       </span>
       <form className={isSidebarOpen ? "expense-form" : "hide-form"}>
-        <h2>Add New Expense</h2>
-        <label htmlFor="title">Item / Service</label>
+        <h2>Expense Tracker</h2>
+        <label htmlFor="title">Item | Service</label>
         <input
           type="text"
           name="title"
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          required
         />
         <label htmlFor="date">Date</label>
         <input
@@ -74,6 +88,7 @@ function AddExpense() {
           id="category"
           onChange={(e) => setCategory(e.target.value)}
         >
+          <option>Select</option>
           <option value="Food">Food</option>
           <option value="Drink">Drink</option>
           <option value="Accommodation">Accommodation</option>
@@ -91,6 +106,7 @@ function AddExpense() {
         >
           Save
         </button>
+        <h3>{msg}</h3>
       </form>
     </>
   );
